@@ -1,0 +1,19 @@
+{% extends "registration/base.html" %}
+
+{% block title  %} Account activation {% endblock %}
+{% block header %} Account activation {% endblock %}
+
+{% block content %}
+    
+    {% if account %}
+    <p>
+    Thanks for signing up! You can now log in using your username <b>{{ account.username }}</b>.
+    </p>
+    {% else %}
+    <p>
+    Either your activation link was incorrect, or the activation key for your account has expired.
+    Activation keys are only valid for {{ expiration_days }} days after registration.
+    </p>
+    {% endif %}
+
+{% endblock %}

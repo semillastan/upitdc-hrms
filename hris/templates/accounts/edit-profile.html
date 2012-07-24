@@ -1,0 +1,71 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block css %}
+	<link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+	<div class="left">
+		<div class="welcome">
+			<div class="icon"></div>
+			<span class="text">+{{ request.user }}</span>
+			<a href=""><div class="action">
+				<div class="icon edit"></div>
+				<span class="text">edit profile</span>
+			</div></a>
+			<a href="{% url auth_logout %}"><div class="action">
+				<div class="icon logout"></div>
+				<span class="text">logout</span>
+			</div></a>
+			<div id="clear-both"></div>
+		</div>
+		<div id="clear-both"></div>
+		<div class="user-profile">
+			<script>
+				$(document).ready(function(){
+					$('#id_first_name').attr('placeholder','First Name');
+					$('#id_last_name').attr('placeholder','Last Name');
+					$('#id_city').attr('placeholder','City');
+					$('#id_country').attr('placeholder','Country');
+					$('#id_email').attr('placeholder','Email Address');
+				});
+			</script>
+			<form action="{% url edit_profile %}" method="post">{% csrf_token %}
+				<div class="info"><span class="label">name: </span>{{ form.first_name }}{{ form.last_name }}</div>
+				<div class="info"><span class="label">email: </span>{{ form.email }}</div>
+				<br />
+				<div class="info"><span class="label">birthday: </span>{{ form.birthday }}</div>
+				<div class="info"><span class="label">location: </span>{{ form.city }}{{ form.country }}</div>
+				<div class="info"><span class="label">gender: </span>{{ form.gender }}</div>
+				<div class="info"><span class="label">status: </span>{{ form.marital_status }}</div>
+				<div class="info"><input type="submit" value="update" /></div>
+			</form>
+		</div>
+		<div id="clear-both"></div>
+	</div>
+	
+	
+	<div class="right">
+		<div class="announcements">
+			<div class="title">
+				<div class="icon"> </div>
+				<span>Announcements</span>
+			</div>
+			<div class="box">
+				<div class="announcement">
+					<span class="titulo">Launching of website</span><span class="date">posted 2 June 2012</span>
+					<div class="content">CarrBrake.com is now available!</div>
+				</div>
+				<div class="announcement">
+					<span class="titulo">Pagdagalagan Branch</span><span class="date">posted 30 May 2012</span>
+					<div class="content">We are opening our Pagdalagan branch ...</div>
+				</div>
+			</div>
+			<div id="clear-both"></div>
+		</div>
+		<div id="clear-both"></div>
+	</div>
+	<div id="clear-both"></div>
+{% endblock %}

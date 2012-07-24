@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>CarrBrake | Sign Up</title>
+        <link href="{{MEDIA_URL}}style.css" rel="stylesheet" type="text/css" />
+        <link href="{{MEDIA_URL}}css/login.css" rel="stylesheet" type="text/css" />
+        <script src="{{MEDIA_URL}}js/jquery.min.js"></script>
+        <script src="{{MEDIA_URL}}js/jquery-ui.min.js"></script>
+        <script src="{{MEDIA_URL}}js/dropdown.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Dosis:200,400,600,700' rel='stylesheet' type='text/css'>
+        <script>
+            $.ajaxSetup({ 
+                 beforeSend: function(xhr, settings) {
+                     function getCookie(name) {
+                         var cookieValue = null;
+                         if (document.cookie && document.cookie != '') {
+                             var cookies = document.cookie.split(';');
+                             for (var i = 0; i < cookies.length; i++) {
+                                 var cookie = jQuery.trim(cookies[i]);
+                                 // Does this cookie string begin with the name we want?
+                             if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                 break;
+                             }
+                         }
+                     }
+                     return cookieValue;
+                     }
+                     if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                         // Only send the token to relative URLs i.e. locally.
+                         xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+                     }
+                 } 
+            });
+            
+            $(document).ready(function(){
+                var h = window.innerHeight;
+                var w = window.innerWidth;
+                $(".login").css('min-height', h-135);
+            });
+        </script>
+        
+    </head>
+    <body>
+		
+        <header>
+            <div class="links">
+				<div class="left">
+					<div class="link"><a href="/">Home</a></div>
+					<div class="link"><a href="/about.html">About</a></div>
+					<div class="link"><a href="/contact.html">Contact</a></div>
+					<div class="link"><a href="/admin">Site Admin</a></div>
+				</div> <!-- End of left -->
+				<div class="right">
+					<div class="link"><a href="{% url auth_login %}">Login</a></div>
+					<div class="link"><a href="{% url registration_register %}">Sign Up</a></div>
+				</div> <!-- End of right -->
+            </div> <!-- End of links -->
+        </header>
+        
+        <div style="clear:both"></div>
+        <div class="login">
+			<div class="login-box">
+				<span class="title">Sign Up</span>
+				<form id='login-form' class='login-form' action="{% url registration_register %}" method="post"> {% csrf_token %}
+					{% if form.non_field_errors %}
+						<div class="non-field-errors">{{ form.non_field_errors|removetags:"li ul"|safe }}</div>
+					{% endif %}
+					{% for field in form %}
+						<div class="fieldWrapper">
+							<span class='label'>{{field.label_tag}}{% if field.required %}*{% endif %}: {% if field.errors %}<span class="errors">{{ field.errors|removetags:"li ul"|safe }}</span>{% endif %}</span>
+							{{ field }}
+						</div>
+					{% endfor %}
+					<input type="hidden" name="next" value="{{ next }}" />
+					<div class="login-links">
+						<span class='link'>Already a member <a href="{% url auth_login %}">Login here.</a></span>
+						<div style="clear:both"></div>
+					</div>
+					<input type="submit" value="Register" />
+				</form><div style="clear:both"></div>
+			</div>
+			<div style="clear:both"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+Django==1.4
+PIL==1.1.7
+South==0.7.3
+django-imagekit==0.3.6
+wsgiref==0.1.2
+django-social-auth
+django-grappelli==2.3.8
+django_compressor
+django-registration==0.8

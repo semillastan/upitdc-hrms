@@ -1,0 +1,6 @@
+Thank you for signing up for a new account at carrbrake.com. To activate and use your account, click the link below or copy and paste it into your web browser's address bar.
+
+http://carrbrake.com{% url registration_activate activation_key=activation_key %}
+
+If you didn't request this, you don't need to do anything; you won't receive any more emails from us, and the account will expire automatically in {{ expiration_days }} days.
+

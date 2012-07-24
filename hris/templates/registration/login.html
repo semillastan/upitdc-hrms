@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block extra_head %}
+	<link href="{{MEDIA_URL}}css/login.css" rel="stylesheet" type="text/css" />
+	<script>
+		$(document).ready(function(){
+			var h = $(this).find('.registration-box').height();//css('height');
+			$(this).find('.vertical-line-spacer').css('height', h+10);
+		});
+	</script>
+{% endblock %}
+
+{% block body %}
+	<div class="center-login">
+		<div class="login">
+			<div class="login-box">
+				<span class="title">Login</span>
+				<form id='login-form' class='login-form' action="{% url auth_login %}" method="post"> {% csrf_token %}
+					{% if form.non_field_errors %}
+						<div class="non-field-errors">{{ form.non_field_errors|removetags:"li ul"|safe }}</div>
+					{% endif %}
+					{% for field in form %}
+						<div class="fieldWrapper">
+							<span class='label'>{{field.label_tag}}{% if field.required %}*{% endif %}: {% if field.errors %}<span class="errors">{{ field.errors|removetags:"li ul"|safe }}</span>{% endif %}</span>
+							{{ field }}
+						</div>
+					{% endfor %}
+					<input type="hidden" name="next" value="{{ next }}" />
+					<div class="login-links">
+						<span class='link'><a href="">Forgot password?</a></span>
+						<!--<span class='link'>Not a member yet? <a href="{% url registration_register %}">Sign up here.</a></span>-->
+						<div style="clear:both"></div>
+					</div>
+					<input type="submit" value="Login" />
+				</form><div style="clear:both"></div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		<div class="vertical-line-spacer"></div>
+		<div class="login registration-box">
+			<div class="login-box">
+				<span class="title">Sign Up</span>
+				<form id='login-form' class='login-form' action="{% url registration_register %}" method="post"> {% csrf_token %}
+					{% if registration_form.non_field_errors %}
+						<div class="non-field-errors">{{ registration_form.non_field_errors|removetags:"li ul"|safe }}</div>
+					{% endif %}
+					{% for field in registration_form %}
+						<div class="fieldWrapper">
+							<span class='label'>{{field.label_tag}}{% if field.required %}*{% endif %}: {% if field.errors %}<span class="errors">{{ field.errors|removetags:"li ul"|safe }}</span>{% endif %}</span>
+							{{ field }}
+						</div>
+					{% endfor %}
+					<input type="hidden" name="first_name" value="None" />
+					<input type="hidden" name="last_name" value="None" />
+					<input type="hidden" name="next" value="{{ next }}" /><br />
+					<!--<div class="login-links">
+						<span class='link'>Already a member <a href="{% url auth_login %}">Login here.</a></span>
+						<div style="clear:both"></div>
+					</div>-->
+					<input type="submit" value="Register" class="register" />
+				</form><div style="clear:both"></div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+{% endblock %}

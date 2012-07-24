@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title  %} About {% endblock %}
+
+{% block css %}
+	<link href="{{MEDIA_URL}}css/profile.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+    <div class="left">
+		<div class="welcome">
+			<div class="icon"></div>
+			<span class="text">about us</span>
+		</div>
+		<div class="shop-image">
+		
+		</div>
+		<div class="about">
+				Carr Brake is one of the leading automotive parts supplier in San Fernando City, La Union.
+				The shop is owned by the Valete family, under the leadership of Mr. Jojo Valete.
+		</div>
+		<div class="welcome">
+			<div class="icon"></div>
+			<span class="text">pagdalagan branch</span>
+		</div>
+		<div class="shop-image">
+		
+		</div>
+		<div class="about">
+				Carr Brake recently opened their Pagdalagan branch, where customers from the south can acquire the parts they are looking for.
+		</div>
+		<div id="clear-both"></div>
+	</div>
+	
+	<div class="right">
+		<div class="announcements">
+			<div class="title">
+				<div class="icon"> </div>
+				<span>Announcements</span>
+			</div>
+			<div class="box">
+				<div class="announcement">
+					<span class="titulo">Launching of website</span><span class="date">posted 2 June 2012</span>
+					<div class="content">CarrBrake.com is now available!</div>
+				</div>
+				<div class="announcement">
+					<span class="titulo">Pagdagalagan Branch</span><span class="date">posted 30 May 2012</span>
+					<div class="content">We are opening our Pagdalagan branch ...</div>
+				</div>
+			</div>
+			<div id="clear-both"></div>
+		</div>
+		<div id="clear-both"></div>
+	</div>
+	<div id="clear-both"></div>
+	
+{% endblock %}
