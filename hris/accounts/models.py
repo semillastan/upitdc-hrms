@@ -58,7 +58,7 @@ class UserProfile(ImageModel):
     
     # better a foreign key to some predefined lists
     city = models.CharField("City", max_length=30, blank=True, null=True)    
-    country = models.CharField("Country", max_length=30, blank=True, null=True)
+    country = models.CharField("Country", max_length=30, blank=True, null=True, default="Philippines")
     
     personnel_id = models.PositiveIntegerField(default=0)
     designation = models.ForeignKey(Designation, blank=True, null=True)

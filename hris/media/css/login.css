@@ -1,0 +1,61 @@
+.login-box {
+
+}
+
+.login-box .login-form {
+	width: 750px;
+	min-height: 200px;
+}
+
+.login-box .login-form .non-field-errors {
+	width: 750px;
+	min-height: 20px;
+	font-family: SegoeUI;
+	color: #FF2C00;
+	font-size: 15px;
+	line-height: 15px;
+}
+
+.login-box .login-form .fieldWrapper {
+	height: 40px;
+}
+
+.login-box .login-form .fieldWrapper span.label {
+	display: block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	float: left;
+	font-size: 20px;
+	font-family: SegoeL;
+}
+
+.login-box .login-form .fieldWrapper input[type="text"], 
+.login-box .login-form .fieldWrapper input[type="password"] {
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #ccc;
+	padding-left: 7px;
+	padding-right: 7px;
+	font-size: 20px;
+	font-family: SegoeUI;
+}
+
+.login-box .login-form .login-links {
+	width: 750px;
+	min-height: 20px;
+	font-family: SegoeL;
+	margin-bottom: 10px;
+}
+
+.login-box .login-form input[type="submit"] {
+	border: 1px solid #ccc;
+	padding: 7px;
+	background-color: #4188D2;
+	font-size: 20px;
+	color: #ffffff;
+	font-family: SegoeL;
+	margin-left: 7px;
+	cursor: pointer;
+}

@@ -33,7 +33,6 @@ def profile(request, username=''):
 @render_to('accounts/edit-profile.html')
 def edit_profile(request):
     
-    #formset = ContactFormset(prefix="contact")
     profile = request.user.get_profile()
     initial = { 'first_name': profile.user.first_name, 'last_name': profile.user.last_name, 'email': profile.user.email }
     if request.method == "POST":
@@ -43,7 +42,7 @@ def edit_profile(request):
            return reverse_redirect('profile')         
     else:
         form = EditProfileForm(initial=initial, instance=profile)
-    return {'form': form}#, 'formset':formset}
+    return {'form': form,'profile':profile}
     
 def register_user(sender, user, request, **kwargs):
     ''' This will only be called when the registration form has validated 

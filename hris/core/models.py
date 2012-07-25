@@ -47,7 +47,7 @@ class PaySlip(models.Model):
 	others = models.PositiveIntegerField(default=0, verbose_name="Others")
 	
 	created = models.DateTimeField(datetime.datetime.now())
-	created_by = models.ForeignKey(User, verbose_name="payslip_created_by")
+	created_by = models.ForeignKey(User, related_name="payslip_created_by")
 
 	@property
 	def monthly_salary(self):

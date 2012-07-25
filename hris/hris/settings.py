@@ -34,7 +34,10 @@ UPLOAD_STORAGE = FileSystemStorage(location=UPLOAD_ROOT, base_url=UPLOAD_URL)
 #ADMIN_MEDIA_PREFIX = '/static/admin'
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+	
+)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -47,6 +50,15 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
+    'django.core.context_processors.media',
+    'django.contrib.auth.context_processors.auth',
+)
+
+GRAPPELLI_ADMIN_TITLE = 'UP ITDC Human Resource Information System'
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +67,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 ROOT_URLCONF = 'hris.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.

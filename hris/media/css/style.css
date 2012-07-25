@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: SegoeUI;
+	src: url('../fonts/SEGOEUI.TTF');
+}
+
+@font-face {
+    font-family: SegoeSB;
+	src: url('../fonts/SegoeSb.TTF');
+}
+
+@font-face {
+    font-family: SegoeUII;
+	src: url('../fonts/SEGOEUII.TTF');
+}
+
+@font-face {
+    font-family: SegoeL;
+	src: url('../fonts/SegoeL.ttf');
+}
+
+@font-face {
+    font-family: SegoeLI;
+	src: url('../fonts/SegoeLI.ttf');
+}
+
+#clear-both { clear: both; }
+a { text-decoration: none; }
+
+body, html {
+	background-color: #dedede;
+	margin: 0;
+	padding: 0;
+	font-family: SegoeUI;
+	letter-spacing: 0px;
+}
+
+header, .banner, .body, footer {
+	width: 1024px;
+	margin: 0 auto;
+	padding: 0;
+	min-height: 20px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+header {
+	background-color: #141414;
+	color: #ffffff;
+	height: 50px;
+}
+
+.banner {
+	color: #141414;
+	height: 80px;
+	border-bottom: 1px solid #ccc;
+}
+
+.banner .wrapper {
+	height: 60px;
+	padding: 10px;
+	width: 1004px;
+}
+
+.banner .wrapper span {
+	display: block;
+	color: #141414;
+	font-family: SegoeL;
+}
+
+.banner .wrapper span.up {
+	font-size: 20px;
+	height: 20px;
+}
+
+.banner .wrapper span.itdc {
+	font-size: 30px;
+	height: 30px;
+}
+
+.body {
+	min-height: 200px;
+	color: #141414;
+}
+
+.body nav {
+	background-color: #ffffff;
+	width: 200px;
+	min-height: 200px;
+	float: left;
+}
+
+.body nav .wrapper {
+	padding: 10px;
+	width: 180px;
+}
+
+.body nav .wrapper .title {
+	min-height: 20px;
+	font-family: SegoeL;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #141414;
+}
+
+.body nav .wrapper .title span { 
+	display: block;
+	font-size: 45px;
+	height: 35px;
+	line-height: 35px;
+}
+
+.body nav .wrapper .links {
+	min-height: 20px;
+	font-family: SegoeL;
+}
+
+.body nav .wrapper .links div {
+	height: 25px;
+	line-height: 25px;
+}
+
+.body nav .wrapper .links div a {
+	font-size: 25px;
+	text-decoration: none;
+}
+
+.body nav .wrapper .links div a:visited { color: #141414; }
+
+.body nav .wrapper .links div a:hover, .body nav .wrapper .links div a.active {
+	cursor: pointer;
+	color: #0E51A7 !important;
+}
+
+.body .bodywrapper {
+	width: 804px;
+	min-height: 200px;
+	padding: 10px;
+	float: left;
+}
+
+.page-title {
+	display: block;
+	min-height: 35px;
+	font-family: SegoeL;
+	font-size: 35px;
+	letter-spacing: -1px;
+	line-height: 30px;
+}
+
+footer {
+	height: 75px;
+	color: #141414;
+}

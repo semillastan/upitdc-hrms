@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>{% block title %}{% endblock %} | CarrBrake</title>
-        <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" type="text/css" />
-        <script src="{{STATIC_URL}}js/jquery.min.js"></script>
-        <script src="{{STATIC_URL}}js/jquery-ui.min.js"></script>
-        <script src="{{STATIC_URL}}js/dropdown.js"></script>
+        <title>{% block title %}{% endblock %} | UP ITDC HRIS </title>
+        <link href="{{ MEDIA_URL }}css/style.css" rel="stylesheet" type="text/css" />
+        <script src="{{ MEDIA_URL }}js/jquery.min.js"></script>
+        <script src="{{ MEDIA_URL }}js/jquery-ui.min.js"></script>
+        <script src="{{ MEDIA_URL }}js/dropdown.js"></script>
         <script>
             $.ajaxSetup({ 
                  beforeSend: function(xhr, settings) {
@@ -28,14 +28,14 @@
                          // Only send the token to relative URLs i.e. locally.
                          xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
                      }
-                 } 
+                 }
             });
             
             $(document).ready(function(){
                 var h = window.innerHeight;
                 var w = window.innerWidth;
-                $('.body').css('min-height',h-285);
-                $('.body .wrapper').css('min-height',h-315);
+                $('.body').css('min-height',h-206);
+                $('nav').css('height',$('.body').height()-20);
             });
         </script>
         {% block js  %}{% endblock %}
@@ -43,20 +43,44 @@
         {% block extra_head %}{% endblock %}
     </head>
     <body>
-		
         <header>
             <div class="wrapper">
 				
 			</div><!-- end of wrapper -->
         </header>
-        <nav>
+        <div class="banner">
 			<div class="wrapper">
+				<span class="up">University of the Philippines</span>
+				<span class="itdc">Information Technology Development Center</span>
 			</div><!-- end of wrapper -->
-        </nav><!-- end of nav -->
+        </div><!-- end of nav -->
         <div class="body">
-			<div class="wrapper">
+			<nav>
+				<div class="wrapper">
+					<div class="title">
+						<span>hris</span>
+						<div style="clear:both"></div>
+					</div>
+					<div class="links">
+						<div><a href="\">home</a></div>
+						<div><a href="{% url tax-calc">tax calculator</a></div>
+						<div><a href="{% url auth_login %}">member login</a></div>
+						{% if request.user.is_authenticated %}
+							<div><a>departments</a></div>
+							<div><a>employees</a></div>
+							<div><a>forms</a></div>
+						{% endif %}
+						<div><a>about</a></div>
+						<div style="clear:both"></div>
+					</div>
+					<div style="clear:both"></div>
+				</div><!-- end of wrapper -->
+				<div style="clear:both"></div>
+			</nav>
+			<div class="bodywrapper">
 				{% block body %}{% endblock %}
 			</div><!-- end of wrapper -->
+			<div style="clear:both"></div>
         </div><!-- end of body -->
         <footer>
 			<div class="wrapper">

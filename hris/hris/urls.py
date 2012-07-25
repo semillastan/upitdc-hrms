@@ -6,10 +6,11 @@ from django.views.generic.simple import direct_to_template
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('accounts.urls')),
     url(r'^', include('core.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^accounts/', include('accounts.urls')),
+    
 )
 
 if settings.DEBUG:
@@ -17,4 +18,3 @@ if settings.DEBUG:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
