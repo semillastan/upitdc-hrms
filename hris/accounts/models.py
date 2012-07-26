@@ -60,7 +60,7 @@ class UserProfile(ImageModel):
     city = models.CharField("City", max_length=30, blank=True, null=True)    
     country = models.CharField("Country", max_length=30, blank=True, null=True, default="Philippines")
     
-    personnel_id = models.PositiveIntegerField(default=0)
+    personnel_id = models.PositiveIntegerField(default=0, blank=True, null=True)
     designation = models.ForeignKey(Designation, blank=True, null=True)
     official_email = models.EmailField(blank=True, null=True)
     

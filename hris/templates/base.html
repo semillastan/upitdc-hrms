@@ -63,13 +63,16 @@
 					</div>
 					<div class="links">
 						<div><a href="\">home</a></div>
-						<div><a href="{% url tax-calc">tax calculator</a></div>
-						<div><a href="{% url auth_login %}">member login</a></div>
+						{% if not request.user.is_authenticated %}
+							<div><a href="{% url auth_login %}">member login</a></div>
+						{% endif %}
 						{% if request.user.is_authenticated %}
-							<div><a>departments</a></div>
+							<div><a href="{% url profile %}">my profile</a></div>
+							<div><a href="{% url all-departments %}">departments</a></div>
 							<div><a>employees</a></div>
 							<div><a>forms</a></div>
 						{% endif %}
+						<div><a href="{% url tax-calc %}">tax calculator</a></div>
 						<div><a>about</a></div>
 						<div style="clear:both"></div>
 					</div>

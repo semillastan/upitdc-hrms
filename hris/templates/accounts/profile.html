@@ -7,13 +7,14 @@
 {% endblock %}
 
 {% block body %}
+	<span class="page-title">+{{ request.user }}</span>
 	<div class="profile-header">
-		<div class="icon"></div>
-		<span class="text">+{{ request.user }}</span>
+		{% if request.user.get_profile.department == 'Human Resource Department' %}
 		<a href="{% url edit_profile %}"><div class="action">
 			<div class="icon edit"></div>
 			<span class="text">edit profile</span>
 		</div></a>
+		{% endif %}
 		<a href="{% url auth_logout %}"><div class="action">
 			<div class="icon logout"></div>
 			<span class="text">logout</span>
@@ -29,6 +30,10 @@
 		<div class="info"><span class="label">birthday: </span><span class="entry small">{% if profile.birthday %}{{ profile.birthday|date:"j F Y" }}{% endif %}</span></div>
 		<div class="info"><span class="label">gender: </span><span class="entry small">{{ profile.gender|lower }}</span></div>
 		<div class="info"><span class="label">status: </span><span class="entry small">{{ profile.marital_status|lower }}</span></div>
+		<br />
+		<div class="info"><span class="label">personnel id: </span>{{ profile.personnel_id }}</div>
+		<div class="info"><span class="label">designation: </span>{{ profile.designation }}</div>
+		<div class="info"><span class="label">itdc email: </span>{{ profile.official_email }}@ittc.edu.ph</div>
 	</div>
 	<div id="clear-both"></div>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Departments{% endblock %}
+
+{% block extra_head %}
+	<link href="{{ MEDIA_URL }}css/departments.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+	<span class="page-title">Departments</span>
+	<div class="departments">
+		{% for department in departments %}
+			<div class="department">
+				<span class="name">{{ department }}</span>
+				<a class="link">edit</a>
+				<a class="link">delete</a>
+				<a class="link">view designations</a>
+				<a class="link">add designation</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from accounts.models import UserProfile, ContactInformation
+from accounts.models import UserProfile, ContactInformation, Department, Designation
 from registration.forms import RegistrationFormUniqueEmail
 from django.forms.extras.widgets import SelectDateWidget
 from datetime import date
@@ -50,3 +50,13 @@ class ContactForm(forms.ModelForm):
         fields = ('type', 'value')
         
 ContactFormset = inlineformset_factory(User, ContactInformation, extra=1, max_num=10, form=ContactForm)
+
+class DepartmentForm(forms.ModelForm):
+	class Meta:
+		model = Department
+		fields = ('name',)
+
+class DesignationForm(forms.ModelForm):
+	class Meta:
+		model = Designation
+		fields = ('name',)

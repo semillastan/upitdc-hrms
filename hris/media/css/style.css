@@ -30,7 +30,7 @@
 a { text-decoration: none; }
 
 body, html {
-	background-color: #dedede;
+	background-color: #f5f5f5;
 	margin: 0;
 	padding: 0;
 	font-family: SegoeUI;
@@ -86,7 +86,7 @@ header {
 }
 
 .body nav {
-	background-color: #ffffff;
+	background-color: #fafafa;
 	width: 200px;
 	min-height: 200px;
 	float: left;
@@ -147,6 +147,83 @@ header {
 	font-size: 35px;
 	letter-spacing: -1px;
 	line-height: 30px;
+}
+
+.calc {
+	width: 780px;
+	padding: 10px;
+	min-height: 200px;
+}
+
+.calc input.salary {
+	width: 250px;
+	height: 50px;
+	line-height: 50px;
+	font-family: SegoeL;
+	font-size: 30px;
+	padding-left: 7px;
+	border: 0;
+	color: #000;
+}
+
+.calc .status {
+	width: 780px;
+	min-height: 20px;
+	margin-top: 20px;
+}
+
+.calc .status .type, .calc .status .without, .calc .status .with {
+	width: 250px;
+	height: 200px;
+	border-right: 1px solid #dedede;
+	margin-right: 9px;
+	float: left;
+	font-family: SegoeL;
+}
+
+.calc .status .type div, .calc .status .without div, .calc .status .with div {
+	width: 230px;
+	height: 35px;
+	font-size: 30px;
+}
+
+.calc .status .with {
+	border: 0;
+	margin: 0;
+}
+
+.calc .status .output {
+	height: 40px;
+	width: 600px;
+	margin-top: 20px;
+	float: right;
+}
+
+.calc .status .output span {
+	display: block;
+	margin-right: 7px;
+	height: 50px;
+	float: right;
+	font-family: SegoeL;
+}
+
+.calc .status .output span.label {
+	font-size: 25px;
+	line-height: 80px;
+}
+
+.calc .status .output span.label.forty {
+	font-size: 25px;
+	line-height: 57px;
+}
+
+.calc .status .output span.total-tax {
+	font-size: 38px;
+	color: #A60800;
+}
+
+.calc .status .output span.gross-salary {
+	font-size: 50px;
 }
 
 footer {

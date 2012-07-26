@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title  %} Home {% endblock %}
+{% block title  %} Tax Calculator {% endblock %}
+
+{% block extra_head %}
+	<script src="{{MEDIA_URL}}js/tax-calc.js"></script>
+	<link href="{{ MEDIA_URL }}css/calc.css" rel="stylesheet" type="text/css" />
+{% endblock %}
 
 {% block js %}
     <script type="text/javascript">
@@ -11,12 +16,68 @@
 
 {% block body %}
 	<span class="page-title">Tax Calculator</span>
-    <div class="tax-calculator">
-		<form>
-			<div class="fieldWrapper">
-				<input type="" />
+	<div class="calc">
+		<input class="salary" type="text" name="salary" placeholder="Enter Salary Here" />
+		<div class="status">
+			<div class="type">
+				<span class="title">Pay Type</span>
+				<div><input type="radio" name="type" value="1">Monthly</input></div>
+				<div><input type="radio" name="type" value="2" checked>Semi-monthly</input></div>
 			</div>
-		</form>
-    </div>    
+			<div class="without">
+				<span class="title">Employees WITHOUT qualified dependent</span>
+				<div><input type="radio" name="status" value="1">Z</input></div>
+				<div><input type="radio" name="status" value="2" checked>S/ME</input></div>
+			</div>
+			<div class="with">
+				<span class="title">Single/Married employee WITH qualified dependent child(ren)</span>
+				<div><input type="radio" name="status" value="3">ME1/S1</input></div>
+				<div><input type="radio" name="status" value="4">ME2/S2</input></div>
+				<div><input type="radio" name="status" value="5">ME3/S3</input></div>
+				<div><input type="radio" name="status" value="6">ME4/S4</input></div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="output">
+				<span class="total-tax">(0.00)</span><span class="label forty">Total Tax: </span>
+				<div style="clear:both"></div>
+				<span class="gross-salary">0.00</span><span class="label">Gross Salary: </span>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+		<!--<button class="button">Compute</button>-->
+	</div>
     <div style="clear:both"></div>
+    <script>
+	$(document).ready(function(){
+		var type = 0;
+		var status = 0;
+		var salary = 0;
+		var tax = 0;
+		$('input[name="salary"]').keyup(function(){
+			tax = computeTax();
+			$('.output span.total-tax').text("(" + tax + ")");
+			$('.output span.gross-salary').text(parseInt($('input[name="salary"]').val())-tax);
+		});
+		$('input[name="type"]').change(function(){
+			tax = computeTax();
+			$('.output span.total-tax').text("(" + tax + ")");
+			$('.output span.gross-salary').text(parseInt($('input[name="salary"]').val())-tax);
+		});
+		$('input[name="status"]').change(function(){
+			tax = computeTax();
+			$('.output span.total-tax').text("(" + tax + ")");
+			$('.output span.gross-salary').text(parseInt($('input[name="salary"]').val())-tax);
+		});
+	});
+	$('.button').click(function(){
+		var type = $('input[name="type"]:checked').val();
+		var status = $('input[name="status"]:checked').val();
+		var salary = $('input[name="salary"]').val();
+		if(parseInt(type) == 1){
+			computeTaxMonthly(parseInt(status),parseInt(salary));
+		}else{
+			computeTaxSemi(parseInt(status),parseInt(salary));
+		}
+	});
+	</script>
 {% endblock %}

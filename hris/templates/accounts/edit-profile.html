@@ -7,51 +7,51 @@
 {% endblock %}
 
 {% block body %}
-		<div class="profile-header">
-			<div class="icon"></div>
-			<span class="text">+{{ request.user }}</span>
-			<a href="{% url profile %}"><div class="action">
-				<div class="icon edit"></div>
-				<span class="text">back to profile</span>
-			</div></a>
-			<a href="{% url auth_logout %}"><div class="action">
-				<div class="icon logout"></div>
-				<span class="text">logout</span>
-			</div></a>
-			<div id="clear-both"></div>
-		</div>
+	<span class="page-title">+{{ request.user }}</span>
+	<div class="profile-header">
+		<a href="{% url profile %}"><div class="action">
+			<div class="icon edit"></div>
+			<span class="text">back to profile</span>
+		</div></a>
+		<a href="{% url auth_logout %}"><div class="action">
+			<div class="icon logout"></div>
+			<span class="text">logout</span>
+		</div></a>
 		<div id="clear-both"></div>
-		<div class="user-profile">
-			<script>
-				$(document).ready(function(){
-					$('#id_first_name').attr('placeholder','First Name');
-					$('#id_last_name').attr('placeholder','Last Name');
-					$('#id_city').attr('placeholder','City');
-					$('#id_country').attr('placeholder','Country');
-					$('#id_email').attr('placeholder','Email Address');
-					$('#id_official_email').attr('placeholder','@ittc.up.edu.ph');
-				});
-			</script>
-			<form action="{% url edit_profile %}" method="post">{% csrf_token %}
-				<div class="info"><span class="label">name: </span>{{ form.first_name }}{{ form.last_name }}</div>
-				<div class="info"><span class="label">email: </span>{{ form.email }}</div>
-				<br />
-				<div class="info"><span class="label">birthday: </span>{{ form.birthday }}</div>
-				<div class="info"><span class="label">location: </span>{{ form.city }}{{ form.country }}</div>
-				<div class="info"><span class="label">gender: </span>{{ form.gender }}</div>
-				<div class="info"><span class="label">status: </span>{{ form.marital_status }}</div>
-				{% if not request.user.designation.department == 'Human Resource' %}
-					<div class="info"><span class="label">personnel id: </span>{{ profile.personnel_id }}</div>
-					<div class="info"><span class="label">designation: </span>{{ profile.designation }}</div>
-					<div class="info"><span class="label">itdc email: </span>{{ profile.official_email }}@ittc.edu.ph</div>
-				{% else %}
-					<div class="info"><span class="label">personnel id: </span>{{ form.personnel_id }}</div>
-					<div class="info"><span class="label">designation: </span>{{ form.designation }}</div>
-					<div class="info"><span class="label">itdc email: </span>{{ form.official_email }}@ittc.edu.ph</div>
-				{% endif %}
-				
-				<div class="info"><input type="submit" value="update" /></div>
-			</form>
-		</div>
-		<div id="clear-both"></div>
+	</div>
+	<div id="clear-both"></div>
+	<div class="user-profile">
+		<script>
+			$(document).ready(function(){
+				$('#id_first_name').attr('placeholder','First Name');
+				$('#id_last_name').attr('placeholder','Last Name');
+				$('#id_city').attr('placeholder','City');
+				$('#id_country').attr('placeholder','Country');
+				$('#id_email').attr('placeholder','Email Address');
+				$('#id_official_email').attr('placeholder','@ittc.up.edu.ph');
+			});
+		</script>
+		<form action="{% url edit_profile %}" method="post">{% csrf_token %}
+			<div class="info"><span class="label">name: </span>{{ form.first_name }}{{ form.last_name }}</div>
+			<div class="info"><span class="label">email: </span>{{ form.email }}</div>
+			<br />
+			<div class="info"><span class="label">location: </span>{{ form.city }}{{ form.country }}</div>
+			<div class="info"><span class="label">birthday: </span>{{ form.birthday }}</div>
+			<div class="info"><span class="label">gender: </span>{{ form.gender }}</div>
+			<div class="info"><span class="label">status: </span>{{ form.marital_status }}</div>
+			<br />
+			{% if not request.user.designation.department == 'Human Resource' %}
+				<div class="info"><span class="label">personnel id: </span>{{ profile.personnel_id }}</div>
+				<div class="info"><span class="label">designation: </span>{{ profile.designation }}</div>
+				<div class="info"><span class="label">itdc email: </span>{{ profile.official_email }}@ittc.edu.ph</div>
+			{% else %}
+				<div class="info"><span class="label">personnel id: </span>{{ form.personnel_id }}</div>
+				<div class="info"><span class="label">designation: </span>{{ form.designation }}</div>
+				<div class="info"><span class="label">itdc email: </span>{{ form.official_email }}@ittc.edu.ph</div>
+			{% endif %}
+			
+			<div class="info"><input type="submit" value="update" /></div>
+		</form>
+	</div>
+	<div id="clear-both"></div>
 {% endblock %}

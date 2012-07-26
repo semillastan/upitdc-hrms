@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from core.models import TaxTable, PaySlip
 import datetime
 
-year  = date.today().year
+year  = datetime.datetime.today().year
 YEARS = range(year-100, -1)
 
 class TaxTableForm(forms.ModelForm):	
