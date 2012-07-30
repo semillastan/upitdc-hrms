@@ -37,7 +37,7 @@ body, html {
 	letter-spacing: 0px;
 }
 
-header, .banner, .body, footer {
+header, .banner, .body {
 	width: 1024px;
 	margin: 0 auto;
 	padding: 0;
@@ -86,10 +86,10 @@ header {
 }
 
 .body nav {
-	background-color: #fafafa;
-	width: 200px;
+	width: 199px;
 	min-height: 200px;
 	float: left;
+	border-right: 1px solid #dedede;
 }
 
 .body nav .wrapper {
@@ -109,6 +109,7 @@ header {
 	font-size: 45px;
 	height: 35px;
 	line-height: 35px;
+	color: #0A64A4;
 }
 
 .body nav .wrapper .links {
@@ -130,7 +131,7 @@ header {
 
 .body nav .wrapper .links div a:hover, .body nav .wrapper .links div a.active {
 	cursor: pointer;
-	color: #0E51A7 !important;
+	color: #0A64A4 !important;
 }
 
 .body .bodywrapper {
@@ -139,6 +140,16 @@ header {
 	padding: 10px;
 	float: left;
 }
+
+.breadcrumbs {
+	width: 780px;
+	height: 12px;
+	font-family: Arial, san-serif;
+	font-size: 10px;
+}
+
+.breadcrumbs a { color: #0A64A4; }
+.breadcrumbs a:visited { color: #0A64A4; }
 
 .page-title {
 	display: block;
@@ -224,9 +235,4 @@ header {
 
 .calc .status .output span.gross-salary {
 	font-size: 50px;
-}
-
-footer {
-	height: 75px;
-	color: #141414;
 }

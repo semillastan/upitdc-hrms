@@ -34,8 +34,8 @@
             $(document).ready(function(){
                 var h = window.innerHeight;
                 var w = window.innerWidth;
-                $('.body').css('min-height',h-206);
-                $('nav').css('height',$('.body').height()-20);
+                $('.body').css('min-height',h-131);
+                $('nav').css('height',$('.body').height());
             });
         </script>
         {% block js  %}{% endblock %}
@@ -84,12 +84,13 @@
 				{% block body %}{% endblock %}
 			</div><!-- end of wrapper -->
 			<div style="clear:both"></div>
+			<footer>
+				<div class="wrapper">
+					
+				</div><!-- end of wrapper -->
+			</footer><!-- end of footer -->
+						<div style="clear:both"></div>
         </div><!-- end of body -->
-        <footer>
-			<div class="wrapper">
-				
-			</div><!-- end of wrapper -->
-        </footer><!-- end of footer -->
         <div style="clear:both"></div>
     </body>
 </html>

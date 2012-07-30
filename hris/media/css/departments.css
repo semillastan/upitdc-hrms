@@ -5,19 +5,49 @@
 }
 
 .departments .department {
-	width: 360px;
-	height: 140px;
+	width: 780px;
+	height: 30px;
 	background-color: #ffffff;
 	border-left: 5px solid #141414;
 	margin-right: 10px;
-	float: left;
 	padding: 10px;
+	margin-bottom: 7px;
 }
 
 .departments .department span.name {
 	display: block;
-	min-height: 30px;
+	height: 30px;
+	line-height: 30px;
 	font-size: 30px;
 	font-family: SegoeL;
 	line-height: 25px;
+	width: 500px;
+	float: left;
+}
+
+.departments .department:hover {
+	border-color: #FF6800;
+	background-color: #dedede;
+}
+
+.departments .department .right-action {
+	float: right;
+	width: 270px;
+	height: 30px;
+}
+
+.departments .department .right-action a {
+	display: block;
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	font-family: SegoeL;
+	color: #141414;
+	padding: 0 5px 0 5px;
+	cursor: pointer;
+}
+
+.departments .department .right-action a img {
+	width: 30px;
 }

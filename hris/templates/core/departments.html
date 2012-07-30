@@ -7,15 +7,18 @@
 {% endblock %}
 
 {% block body %}
+	<div class="breadcrumbs">
+		<a href="">Home</a><span> - </span><a href="">Departments</a>
+	</div>
 	<span class="page-title">Departments</span>
 	<div class="departments">
 		{% for department in departments %}
 			<div class="department">
 				<span class="name">{{ department }}</span>
-				<a class="link">edit</a>
-				<a class="link">delete</a>
-				<a class="link">view designations</a>
-				<a class="link">add designation</a>
+				<div class="right-action">
+					<a><img src="{{MEDIA_URL}}images/icons/delete.png"></a>
+					<a><img src="{{MEDIA_URL}}images/icons/edit.png"></a>
+				</div>
 			</div>
 		{% endfor %}
 	</div>
